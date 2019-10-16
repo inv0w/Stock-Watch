@@ -1,0 +1,22 @@
+<!-- Extend 'base.html' and put content into a block 'body' to match -->
+{% extends 'base.html' %}
+
+{% block title %}
+    Stock Tracker
+{% endblock %}
+{% block content %}
+<h4>
+Look up a stock, make sure it's a valid one in the NYSE!
+</h4>
+<form action="/stock">
+    <div class="searchBar">
+            <input type="text"
+            id="searchbar"
+            class="searchBarStyle"
+            name="search"
+            placeholder="Search..."
+            value="{{search}}">
+            <button type="submit" class="searchButton">Search</button>
+    </div>
+</form>
+{% endblock %}

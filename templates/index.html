@@ -1,0 +1,22 @@
+<!-- Extend 'base.html' and put content into a block 'body' to match -->
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ stock }}
+{% endblock %}
+{% block content %}
+<form action="/stock">
+    <div class="searchBar">
+            <input type="text"
+            id="searchbar"
+            class="searchBarStyle"
+            name="search"
+            placeholder="Search..."
+            value="{{search}}">
+            <button type="submit" class="searchButton">Search</button>
+    </div>
+</form>
+</br>
+
+    {{ stock }} Price: {{ current_price }}
+{% endblock %}
