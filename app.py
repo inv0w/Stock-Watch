@@ -12,10 +12,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    """Shows the Home Page"""
     return render_template("home.html")
 
 @app.route('/stock')
 def index():
+    """Takes in input from the search bar and looks up Stock information
+    using Alpha Vantage's API
+    """
     search_term = request.args.get("search")
     try:
         data, meta_data = ts.get_intraday(symbol=search_term, interval='5min')
