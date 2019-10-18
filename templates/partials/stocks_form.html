@@ -1,0 +1,14 @@
+<fieldset>
+    <legend>{{ title }}</legend>
+    <!-- Name -->
+    <div class='form-group'>
+        <label for='stock-name'>Name</label><br>
+        <input class='form-control' id='stock-name' type='text' name='name' value='{{ stock.name }}'/>
+    </div>
+
+    <!-- Amount -->
+    <div class='form-group'>
+        <label for='amount'>Amount</label><br>
+        <input class='form-control' id='amount' type='number' name='amount' value='{{ stock.amount }}' />
+    </div>
+</fieldset>

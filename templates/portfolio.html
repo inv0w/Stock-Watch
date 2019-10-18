@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+{% block content %}
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Stock');
+        data.addColumn('number', 'Price');
+        data.addRows([
+        ['AAPL', 2],
+        ['TSLA', 4],
+        ['AMD', 10],
+        ['NFLX', 3]
+        ]);
+        var options = {
+          title: 'Stock Portfolio',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="donutchart" style="width: 1000px; height: 700px;"></div>
+  </body>
+        <a href='/portfolio/new' class='btn btn-default'>New Stock</a>
+      <h1>Stocks</h1>
+       {% for stock in portfolio %}
+        <div class='card'>
+            <div class='card-block'>
+                <h4 class='card-title'>{{ stock.name }}</h4>
+                <p class='card-text'>{{ stock.amount }}</p>
+                <!-- Edit link -->
+                <p><a class='btn btn-primary' href='/portfolio/{{ stock._id }}/edit'>Edit</a></p>
+                <!-- Delete link -->
+                <p><form method='POST' action='/portfolio/{{ stock._id }}/delete'>
+                    <input type='hidden' name='_method' value='DELETE'>
+                    <button class='btn btn-primary' type='submit'>Delete</button>
+                </form></p>
+            </div>
+        </div>
+
+      {% endfor %}
+{% endblock %}
