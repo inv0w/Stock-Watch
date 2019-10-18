@@ -1,11 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+from pymongo import MongoClient
+from bson.objectid import ObjectId
 import requests
 import json
 from alpha_vantage.timeseries import TimeSeries
 import pandas as pd
-import matplotlib.pyplot as plt
+import os
 
 
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Contractor')
+client = MongoClient(host=f'{host}?retryWrites=false')
+db = client.get_default_database()
+wish_list = db.wish_list
 AV_key = '3CSH2Q79FWBCUE4M'
 ts = TimeSeries(key=AV_key, output_format='pandas')
 app = Flask(__name__)
