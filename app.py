@@ -22,13 +22,18 @@ def index():
     """
     search_term = request.args.get("search")
     try:
-        data, meta_data = ts.get_intraday(symbol=search_term, interval='5min')
+        data, meta_data = ts.get_intraday(symbol=search_term, interval='60min')
     except:
         return render_template("home.html")
     current_price = data['4. close'].iloc[0] #Current stock price
+    stock_price = data['4. close'].values.tolist()
+    stock_time = data.index.values
     print(data)
     print(meta_data)
-    return render_template("index.html", current_price=current_price, stock=search_term)
+    print(stock_price)
+    print(stock_time)
+    return render_template("index.html", current_price=current_price, stock=search_term,
+    stock_time=stock_time, stock_price=stock_price)
 
 
 # data['4. close'].plot()
