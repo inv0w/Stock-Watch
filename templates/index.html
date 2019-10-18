@@ -33,12 +33,12 @@
             var data = new google.visualization.DataTable();
             data.addColumn('string', 'Date');
             data.addColumn('number', 'Open Price');
+            
             // Looping was not working for adding rows. This is a sample of 7 values
             // from the Stock's Prices
             // for (var i = 0; i <= 10; i++) {
             //     data.addRow(['{{stock_time[i]}}', {{stock_price[i]}}]);
             //     }
-
             data.addRows([
             ['{{stock_time[6]}}',  {{stock_price[6]}}],
             ['{{stock_time[5]}}',  {{stock_price[5]}}],
@@ -48,8 +48,6 @@
             ['{{stock_time[1]}}',  {{stock_price[1]}}],
             ['{{stock_time[0]}}',  {{stock_price[0]}}],
             ]);
-
-
 
             var options = {
                 chart: {
