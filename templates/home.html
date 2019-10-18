@@ -5,7 +5,8 @@
     Stock Watch
 {% endblock %}
 {% block content %}
-
+<div class="row">
+    <div class="col-lg-6">
 <h2>Welcome to Stock Watch!</h2>
 <h4>Look up a valid Stock Symbol to begin.</h4>
 <form action="/stock">
@@ -19,4 +20,44 @@
             <button type="submit" class="searchButton">Search</button>
     </div>
 </form>
+</div>
+<div class="col-lg-6">
+    <h4>Popular Stocks</h4>
+    <table class="table">
+        <thead>
+            <tr>
+            <th>Company</th>
+            <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            <td>Microsoft</td>
+            <td>MSFT</td>
+        </tr>
+        <tr class="active">
+            <td>Apple</td>
+            <td>AAPL</td>
+        </tr>
+        <tr class="active">
+            <td>Alphabet</td>
+            <td>GOOG</td>
+        </tr>
+        <tr class="active">
+            <td>Berkshire Hathaway</td>
+            <td>BRK.A</td>
+        </tr>
+        <tr class="active">
+            <td>Amazon</td>
+            <td>AMZN</td>
+        </tr>
+        <tr class="active">
+            <td>Verizon</td>
+            <td>VZ</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</div>
 {% endblock %}
