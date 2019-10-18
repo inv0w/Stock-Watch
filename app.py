@@ -41,11 +41,3 @@ def index():
 def error():
     """Shows the Error Page"""
     return render_template("error_page.html")
-
-
-
-
-
-# data['4. close'].plot()
-# plt.title('Intraday Times Series for the MSFT stock (1 min)')
-# plt.show()
