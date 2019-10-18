@@ -5,9 +5,11 @@
     Stock Watch
 {% endblock %}
 {% block content %}
+<div class="text-center">
+    <div class= "text-muted">
+        <h1>Stock does not exist!</h1>
+        <h2>Search again for another valid symbol.</h2>
 
-<h2>Welcome to Stock Watch!</h2>
-<h4>Look up a valid Stock Symbol to begin.</h4>
 <form action="/stock">
     <div class="searchBar">
             <input type="text"
@@ -19,4 +21,6 @@
             <button type="submit" class="searchButton">Search</button>
     </div>
 </form>
+</div>
+</div>
 {% endblock %}
